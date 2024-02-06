@@ -39,7 +39,7 @@ function main(bucketName = 'my-bucket', fileName = 'test.txt') {
 
   async function downloadIntoMemory() {
     // Downloads the file into a buffer in memory.
-    const contents = await storage.bucket(bucketName).file(fileName).download();
+    const [contents] = await storage.bucket(bucketName).file(fileName).download();
 
     console.log(
       `Contents of gs://${bucketName}/${fileName} are ${contents.toString()}.`
